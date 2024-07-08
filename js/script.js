@@ -25,7 +25,10 @@ document.getElementById("play").addEventListener("click", function () {
 
     let random_nums = []
     while (random_nums.length != 16) {
-        random_nums.push(generateRandomNums(squares_num))
+        let generate_num = generateRandomNums(squares_num)
+        if (!random_nums.includes(generate_num)) {
+            random_nums.push(generate_num)
+        }
     }
     console.log("numeri genrati:", random_nums)
     console.log("lunghezza:", random_nums.length)
