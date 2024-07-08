@@ -65,8 +65,8 @@ function changeColorEvent(square, i, random_nums, squares_num) {
             alert("Hai perso")
             grid.querySelectorAll(".square").forEach(square => {
                 let num = parseInt(square.querySelector("span").textContent);
-                if (!random_nums.includes(num)) {
-                    square.classList.add("bg-azure");
+                if (random_nums.includes(num)) {
+                    square.classList.add("bg-red");
                 }
             });
 
