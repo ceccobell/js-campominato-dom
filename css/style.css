@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    max-width: 100%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-50 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.text-right {
+    justify-content: end;
+}
+
+.pe-30 {
+    padding-right: 30px;
+}
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+.btn {
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+#difficulty {
+    padding: 5px;
+    width: 30%;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+main {
+    background-color: rgb(184, 184, 184);
+}
+
+#grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 10%;
+}
+
+.square {
+    background-color: rgba(47, 156, 14, 0.932);
+    position: relative;
+    border: 1px solid black;
+}
+
+.easy {
+    width: 10%;
+    padding-top: 10%;
+}
+
+.medium {
+    width: calc(100% / 9);
+    padding-top: calc(100% / 9);
+}
+
+.hard {
+    width: calc(100% / 7);
+    padding-top: calc(100% / 7);
+}
+
+.square span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-azure {
+    background-color: rgb(0, 204, 255);
+}
+
+footer {
+    padding: 20px 10px;
+}
