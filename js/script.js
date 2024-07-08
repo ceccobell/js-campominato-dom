@@ -30,9 +30,9 @@ document.getElementById("play").addEventListener("click", function () {
     for (let i = 0; i < squares_num; i++) {
         let square = createSquare(i + 1, difficulty)
         grid.append(square)
-        changeColorEvent(square, i + 1, random_nums, score)
+        changeColorEvent(square, i + 1, random_nums, score, squares_num)
     }
-
+    console.log("Obiettivo:", squares_num - random_nums.length)
 
 })
 
@@ -47,7 +47,7 @@ function createSquare(text, size) {
     return element
 }
 
-function changeColorEvent(square, i, random_nums) {
+function changeColorEvent(square, i, random_nums, squares_num) {
     square.addEventListener("click", function () {
 
         if (game_over || this.classList.contains("bg-red") || this.classList.contains("bg-azure")) {
@@ -57,17 +57,17 @@ function changeColorEvent(square, i, random_nums) {
         if (random_nums.includes(i)) {
             this.classList.add("bg-red");
             game_over = true
-            console.log("Hai perso")
+            alert("Hai perso")
         } else {
             this.classList.add("bg-azure");
             score++
-            console.log("Obiettivo:", squares_num - random_nums.lenght)
-            if (score == squares_num - random_nums.lenght) {
+            document.getElementById("score").innerHTML = "Punteggio:" + score
+
+            if (score === squares_num - random_nums.length) {
                 game_over = true
-                console.log("Hai vinto")
+                alert("Hai vinto")
             }
         }
-        console.log("Punteggio:", score)
     })
 }
 
