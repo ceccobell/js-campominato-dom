@@ -1,4 +1,5 @@
 const grid = document.getElementById("grid")
+let score = 0
 
 // recupero il bottone play e gli do la funzione
 document.getElementById("play").addEventListener("click", function () {
@@ -31,7 +32,7 @@ document.getElementById("play").addEventListener("click", function () {
     for (let i = 0; i < squares_num; i++) {
         let square = createSquare(i + 1, size)
         grid.append(square)
-        changeColorEvent(square, i + 1, random_nums)
+        changeColorEvent(square, i + 1, random_nums, score)
     }
 
 
@@ -54,8 +55,10 @@ function changeColorEvent(square, i, random_nums) {
             this.classList.add("bg-red");
         } else {
             this.classList.add("bg-azure");
+            score++
         }
         console.log("Hai cliccato la", i, "cella")
+        console.log("Punteggio:", punteggio)
     })
 }
 
