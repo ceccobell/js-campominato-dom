@@ -10,6 +10,8 @@ document.getElementById("play").addEventListener("click", function () {
 
     grid.innerHTML = ""
 
+    score = 0
+
     game_over = false
 
     if (difficulty == "hard") {
@@ -61,6 +63,13 @@ function changeColorEvent(square, i, random_nums, squares_num) {
             this.classList.add("bg-red");
             game_over = true
             alert("Hai perso")
+            grid.querySelectorAll(".square").forEach(square => {
+                let num = parseInt(square.querySelector("span").textContent);
+                if (!random_nums.includes(num)) {
+                    square.classList.add("bg-azure");
+                }
+            });
+
         } else {
             this.classList.add("bg-azure");
             score++
