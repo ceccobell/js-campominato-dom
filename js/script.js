@@ -5,6 +5,8 @@ document.getElementById("play").addEventListener("click", function () {
     // recupero l'elemento grid in cui mettere i quadrati
     let difficulty = document.getElementById("difficulty").value
     grid.innerHTML = ""
+
+
     let squares_num = 0
     if (difficulty == "hard") {
         squares_num = 49
@@ -17,12 +19,6 @@ document.getElementById("play").addEventListener("click", function () {
         size = "easy"
     }
 
-    for (let i = 0; i < squares_num; i++) {
-        let square = createSquare(i + 1, size)
-        grid.append(square)
-        changeColorEvent(square, i + 1)
-    }
-
     let random_nums = []
     while (random_nums.length != 16) {
         let generate_num = generateRandomNums(squares_num)
@@ -30,8 +26,15 @@ document.getElementById("play").addEventListener("click", function () {
             random_nums.push(generate_num)
         }
     }
-    console.log("numeri genrati:", random_nums)
-    console.log("lunghezza:", random_nums.length)
+    console.log(random_nums)
+
+    for (let i = 0; i < squares_num; i++) {
+        let square = createSquare(i + 1, size)
+        grid.append(square)
+        changeColorEvent(square, i + 1, random_nums)
+    }
+
+
 })
 
 function createSquare(text, size) {
@@ -45,9 +48,13 @@ function createSquare(text, size) {
     return element
 }
 
-function changeColorEvent(square, i) {
+function changeColorEvent(square, i, random_nums) {
     square.addEventListener("click", function () {
-        this.classList.add("bg-azure")
+        if (random_nums.includes(i)) {
+            this.classList.add("bg-red");
+        } else {
+            this.classList.add("bg-azure");
+        }
         console.log("Hai cliccato la", i, "cella")
     })
 }
